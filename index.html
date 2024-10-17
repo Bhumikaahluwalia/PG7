@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav class="nav-left">
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+            <h1 class="logo">INFINITY HOSPITALITY</h1>
+            <nav class="nav-right">
+                <ul>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Venues</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Contact Form Section -->
+    <div class="contact-container">
+        <h2>Send Us a Message</h2>
+        <h1>Let's Get Started</h1>
+
+        <form action="#" method="post">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" placeholder="John" required>
+
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" placeholder="Doe" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jdoe@test.com" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="1234567890" required>
+
+            <label for="hear-about">How Did You Hear About Us?</label>
+            <select id="hear-about" name="hear-about">
+                <option value="">Please Select</option>
+                <option value="social-media">Social Media</option>
+                <option value="friend">Friend</option>
+                <option value="search-engine">Search Engine</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="event-type">Type of Event</label>
+            <select id="event-type" name="event-type">
+                <option value="">Please Select</option>
+                <option value="wedding">Wedding</option>
+                <option value="birthday">Birthday</option>
+                <option value="corporate">Corporate Event</option>
+            </select>
+
+            <label for="requested-date">Requested Date</label>
+            <input type="text" id="requested-date" name="requested-date" placeholder="e.g. Fall 2026">
+
+            <label for="guest-count">Estimated Guest Count</label>
+            <input type="number" id="guest-count" name="guest-count" placeholder="0-49">
+
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" placeholder="Special requests..."></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Contact Information Section -->
+        <div class="contact-info">
+            <p><strong>Address:</strong><br> 345 Hill Ave, Nashville, TN 37210</p>
+            <p><strong>Phone Number:</strong><br> 615-369-6474</p>
+            <div class="social-media">
+                <a href="#">Pinterest</a>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

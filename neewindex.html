@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento - Event Organizers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #FFDFD6;
+            background-color: #FFFFE0;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg,  #445766, #DFD3C3);
+            padding: 10px 0;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; /* Maintain spacing between left/nav/right */
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center; /* Center the logo */
+            flex-grow: 1; /* Allow logo to expand */
+        }
+
+        .logo img {
+            height: 80px; /* Adjust this value as needed */
+            width: auto; /* Maintain aspect ratio */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nav-left,
+        .nav-right {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-left {
+            justify-content: flex-end;
+            margin-right: auto;
+        }
+
+        .nav-right {
+            justify-content: flex-start;
+            margin-left: auto;
+        }
+
+        /* Navigation Links */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(246, 240, 240, 0.2);
+            color: #eec1ad;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: #0c1038;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #eec1ad;
+            color: #fff;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Home Video Section */
+        .home-video-section {
+            width: 100%;
+            height: 650px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .background-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .website-name {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 80px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            z-index: 10;
+            opacity: 1;
+        }
+
+        .call-now-button {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ebcece;
+            color: #000;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+            z-index: 10;
+            transition: background-color 0.7s, color 0.7s;
+        }
+
+        .call-now-button:hover {
+            background-color: #71031d;
+            transition: 0.7s;
+        }
+        .button {
+    display: inline-block;
+    background-color: rgb(200, 81, 140);
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover Effect for Button */
+.button:hover {
+    background-color: #81ecec; /* Change background color on hover */
+    color: #fff; /* Change text color on hover */
+    box-shadow: 0 0 20px #a73268; /* Optional shadow effect */
+}
+
+        /* Main Content Section */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .text-section h1 {
+            font-size: 3em;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        .text-section p {
+            font-size: 1.2em;
+            color: black;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .text-section .button {
+            display: inline-block;
+            background-color: #cd6b6b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+
+        .video-section {
+            flex: 1;
+            min-width: 300px;
+            max-width: 800px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 5px solid #000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border 0.3s ease;
+        }
+
+        video:hover {
+            transform: scale(1.05);
+            border: 5px solid #4e86a9;
+        }
+
+        /* Reversing layout for specific sections */
+        .reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* Footer Section */
+        footer {
+        background-color: #A79277;
+        color: #3B3B3B;
+        text-align: center;
+        padding: 20px 0;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .footer-section h1, .footer-section h2 {
+        text-decoration: underline;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+    
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+    
+    .footer-section ul li a {
+        display: inline-block;
+        padding: 10px 20px;
+        background: linear-gradient(135deg, #444341, #D1BFAE);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+    
+    .footer-section ul li a:hover {
+        background: linear-gradient(135deg, #e87e74, #3B3B3B); 547e7f
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.4);
+    }
+    
+    
+    .footer-section .gallery-images img {
+        border: 3px solid #3B3B3B;
+        border-radius: 10px;
+        transition: transform 0.3s;
+    }
+    
+    .footer-section .gallery-images img:hover {
+        transform: scale(1.05);
+        border-color: #3B3B3B;
+    }
+    
+    .footer-bottom {
+        margin-top: 20px;
+        border-top: 1px solid #fff;
+        padding-top: 10px;
+        color: #fff;
+    }
+    .footer-section.quick-links ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px; /* Adds spacing between buttons */
+    }
+    
+    .footer-section.quick-links ul li {
+        flex: 1 1 auto; /* Makes each button flexible */
+        max-width: 150px; /* Ensures buttons aren't too wide */
+        min-width: 100px; /* Ensures buttons aren't too narrow */
+        margin-bottom: 10px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <nav class="nav-left">
+                <ul>
+                    <li><a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/aboutus.html">About Us</a></li>
+                    <li class="dropdown">
+                        <a href="#">Service</a>
+                        <div class="dropdown-content">
+                            <a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/wedding.html">Wedding</a>
+                            <a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/event.html">Theme Parties</a>
+                            <a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/cultural.html">Cultural Parties</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="logo">
+                <img src="logo.jpg" alt="Description of image" class="center-image">
+            </div>
+            <nav class="nav-right">
+                <ul>
+                    <li><a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/callnow.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Video Section -->
+    <div class="home-video-section">
+        <video autoplay loop muted playsinline class="background-video">
+            <source src="bgvid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="website-name">EVENTO</div>
+        <a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/callnow.html" class="call-now-button">Call Now</a>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <div class="text-section">
+            <h1>Wedding</h1>
+            <p>We create bespoke weddings and events that are inspired by our clients. We work collaboratively to ensure your event is cohesive and thoughtful. At Brilliant Event Planning, we believe that even the smallest details can have a huge impact.</p>
+            <a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/wedding.html" class="button">Wedding Portfolio</a>
+        </div>
+        <div class="video-section">
+            <video autoplay loop muted playsinline>
+                <source src="wedding.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <div class="container reverse">
+        <div class="text-section">
+            <h1>Theme Parties</h1>
+            <p>Throwing a party is never a one-size-fits-all experience! When your party needs to be tailored to fit a particular theme, look no further than us for a perfect blend of fun, style, and creativity!</p>
+            <a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/event.html" class="button">Event Portfolio</a>
+        </div>
+        <div class="video-section">
+            <video autoplay loop muted playsinline>
+                <source src="themeparty.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="text-section">
+            <h1>Cultural Parties</h1>
+            <p>Cultural events give a glimpse into the heart and soul of a community. Be it a small gathering or a large-scale festivity, we bring together elements that celebrate traditions, customs, and heritage with grace and joy.</p>
+            <a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/cultural.html" class="button">Cultural Portfolio</a>
+        </div>
+        <div class="video-section">
+            <video autoplay loop muted playsinline>
+                <source src="cultural.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- Extended Footer Section -->
+    <!-- Extended Footer Section -->
+    <footer>
+        <div class="container">
+            <!-- About Section -->
+            <div class="footer-section about">
+                <h1>About Evento</h1>
+                <p style="font-size: 1.2em;">Evento is a leading event planning company with a passion for creating unforgettable experiences. Whether it's a wedding, theme party, or cultural event, we bring your vision to life with creativity and precision.</p>
+            </div>
+    
+            <!-- Quick Links Section -->
+            <!-- Quick Links Section -->
+<div class="footer-section quick-links">
+    <h1>Quick Links</h1>
+    <!-- First row of buttons -->
+    <ul>
+        <li><a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/aboutus.html">About Us</a></li>
+        <li><a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/wedding.html">Wedding</a></li>
+        <li><a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/event.html">Theme Parties</a></li>
+    </ul>
+    <!-- Second row of buttons -->
+    <ul>
+        <li><a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/cultural.html">Cultural Parties</a></li>
+        <li><a href="file:///C:/Users/lalit/OneDrive/Desktop/FEE(PROJECT3)/callnow.html">Contact Us</a></li>
+    </ul>
+</div><br></br>
+            <div class="footer-section newsletter">
+                <h1>Newsletter</h1>
+                <p style="font-size: 1.2em;">Stay updated with our latest events and offers. Subscribe to our newsletter!</p>
+                <form action="#" method="post">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit" style="background-color: #3B3B3B; color: #547e7f; border: 3px solid #3B3B3B; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Subscribe</button>
+                </form>
+            </div>
+    
+            <!-- Photo Gallery Section -->
+            <div class="footer-section gallery">
+                <h1>Photo Gallery</h1>
+                <div class="gallery-images">
+                    <img src="wedding-thumb.jpg" alt="Wedding Event" style="width:200px;height:200px;margin:5px;">
+                    <img src="party-thumb.jpg" alt="Theme Party" style="width:200px;height:200px;margin:5px;">
+                    <img src="cultural-thumb.jpg" alt="Cultural Event" style="width:200px;height:200px;margin:5px;">
+                </div>
+            </div>
+    
+            <!-- Testimonials/Quote Section -->
+            <div class="footer-section testimonials">
+                <h2>Quote of the Day</h2>
+                <blockquote style="color:#3B3B3B;">"The best way to predict the future is to create it." – Peter Drucker</blockquote>
+            </div>
+        </div>
+    
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2023 Evento. All rights reserved.</p>
+            <p>Designed by Evento Team</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
